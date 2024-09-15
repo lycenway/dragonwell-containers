@@ -20,7 +20,7 @@ RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar binut
 
 ENV JAVA_VERSION 21.0.1
 
-ARG EDITION=extended
+ARG EDITION=noextended
 
 RUN set -eux; \
     ARCH="$(objdump="$(command -v objdump)" && objdump --file-headers "$objdump" | awk -F '[:,]+[[:space:]]+' '$1 == "architecture" { print $2 }')"; \
